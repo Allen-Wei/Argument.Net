@@ -4,9 +4,12 @@ using System.Collections.Generic;
 
 namespace Argument.Net
 {
-    public class Class1
+    public static class Util
     {
-
+        /// <summary>
+        /// join multi values by seperator
+        /// </summary>
+        public static String StringJoin<T>(this IEnumerable<T> values, String seperator) => values == null ? null : String.Join(seperator, values);
         public static (bool, String) GetArgValue(List<String> args, String argName)
         {
             var lowerCaseArgs = args.Select(arg => (arg ?? "").ToLower()).ToList();

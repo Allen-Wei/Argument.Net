@@ -19,14 +19,13 @@ namespace Argument.Net
         public bool SetPropValue<T>(List<String> args, T instance)
         {
             var argValues = this.ArgNames
-            .Where(n => !String.IsNullOrWhiteSpace(n))
-            .Select(n => Class1.GetArgValue(args, n))
+            .Select(n => Util.GetArgValue(args, n))
             .Where(item => item.Item1 && !String.IsNullOrWhiteSpace(item.Item2))
             .Select(item => item.Item2)
             .ToList();
 
-            if (this.Argument.Default != null)
-                argValues.Add(this.Argument.Default);
+            if (this.Argument.DefaultValue != null)
+                argValues.Add(this.Argument.DefaultValue);
 
             if (argValues.Count == 0) return false;
 
@@ -34,7 +33,7 @@ namespace Argument.Net
 
             try
             {
-                Object value = Convert.ChangeType(argVal, this.Property.PropertyType) ?? this.Argument.Default;
+                Object value = Convert.ChangeType(argVal, this.Property.PropertyType);
                 if (value == null) return false;
                 this.Property.SetValue(instance, value, null);
                 return true;
@@ -43,10 +42,6 @@ namespace Argument.Net
             {
                 return false;
             }
-        }
-        public bool IsValid()
-        {
-            return this.Argument != null;
         }
     }
 }
