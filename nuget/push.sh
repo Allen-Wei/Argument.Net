@@ -1,0 +1,1 @@
+dotnet nuget push ./publish/*.nupkg --api-key $NUGET_KEY --source https://www.nuget.org
