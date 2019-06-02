@@ -1,9 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <IsPackable>true</IsPackable>
     <VersionPrefix>0.0.2</VersionPrefix>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageVersion>0.0.3</PackageVersion>
+    <PackageId>Argument.Net</PackageId>
+    <Title>Argument.Net</Title>
+    <Authors>Alan Wei</Authors>
+    <Description>Get arguments of command line</Description>
+    <IncludeSymbols>true</IncludeSymbols>
+    <RepositoryUrl>https://github.com/Allen-Wei/Argument.Net</RepositoryUrl>
+  </PropertyGroup>
 </Project>
